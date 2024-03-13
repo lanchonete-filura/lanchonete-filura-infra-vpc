@@ -37,3 +37,35 @@ resource "aws_subnet" "private_subnet" {
     Name = "Private Subnet"
   }
 }
+
+# Criação de um Security Group
+resource "aws_security_group" "internal_sg" {
+  name        = "internal-sg"
+  description = "Security group for internal communication within the VPC"
+  vpc_id      = aws_vpc.lanchonete_vpc.id
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/16"] # A VPC CIDR
+  }
+
+  ingress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/16"] # A VPC CIDR
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "Internal SG"
+  }
+}
