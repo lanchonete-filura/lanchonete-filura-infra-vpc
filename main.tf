@@ -28,13 +28,23 @@ resource "aws_subnet" "public_subnet" {
 }
 
 # Criação de uma subnet privada
-resource "aws_subnet" "private_subnet" {
+resource "aws_subnet" "private_subnet_a" {
   vpc_id            = aws_vpc.lanchonete_vpc.id
-  cidr_block        = var.cidr_block_vpc_subnet_private
+  cidr_block        = var.cidr_block_vpc_subnet_private_a
   availability_zone = var.aws_region_aza
 
   tags = {
-    Name = "Private Subnet"
+    Name = "Private Subnet A"
+  }
+}
+
+resource "aws_subnet" "private_subnet_b" {
+  vpc_id            = aws_vpc.lanchonete_vpc.id
+  cidr_block        = var.cidr_block_vpc_subnet_private_b
+  availability_zone = var.aws_region_azb
+
+  tags = {
+    Name = "Private Subnet A"
   }
 }
 
