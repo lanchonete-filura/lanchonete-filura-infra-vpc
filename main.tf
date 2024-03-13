@@ -44,7 +44,7 @@ resource "aws_subnet" "private_subnet_b" {
   availability_zone = var.aws_region_azb
 
   tags = {
-    Name = "Private Subnet A"
+    Name = "Private Subnet B"
   }
 }
 

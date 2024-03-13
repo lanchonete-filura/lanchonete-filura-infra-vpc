@@ -31,12 +31,12 @@ variable "cidr_block_vpc_subnet_public" {
 
 variable "cidr_block_vpc_subnet_private_a" {
   type = string
-  description = "IP da subnet privada"
+  description = "IP da subnet privada A"
   default     = "10.0.2.0/24"
 }
 
 variable "cidr_block_vpc_subnet_private_b" {
   type = string
-  description = "IP da subnet privada"
+  description = "IP da subnet privada B"
   default     = "10.0.3.0/24"
 }
